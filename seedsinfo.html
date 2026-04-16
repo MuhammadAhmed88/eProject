@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Seeds Info</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<style>
+    /* Header footer CSS Strat */
+    .navbar-nav .nav-link {
+        position: relative;
+        transition: 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #d4ffdc !important;
+        transform: translateY(-2px);
+    }
+
+    /* Underline animation */
+    .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background: #ffffff;
+        transition: 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+        width: 100%;
+    }
+
+    /* Dropdown animation */
+    .dropdown-menu {
+        border-radius: 10px;
+        animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .footer-link {
+        color: #ccc;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer-link:hover {
+        color: #00ff88;
+        padding-left: 5px;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        background: #222;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 18px;
+    }
+
+    .social-link:hover {
+        transform: scale(1.2) rotate(5deg);
+        background: #00ff88;
+        color: #000;
+        box-shadow: 0 0 10px #00ff88;
+    }
+
+    /* Header footer CSS End */
+
+    .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .tool-img img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    /* Extra safety (overflow hidden) */
+    .card {
+        overflow: hidden;
+    }
+
+    .card {
+        border-radius: 12px;
+        transition: 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* =========================
+   GLOBAL THEME (Seeds Page)
+   ========================= */
+    body {
+        background: linear-gradient(135deg, #F1F8E9, #ffffff);
+        font-family: 'Segoe UI', sans-serif;
+        overflow-x: hidden;
+    }
+
+    /* Smooth scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* =========================
+   PAGE HEADING ANIMATION
+   ========================= */
+    main h1 {
+        color: #1B4332;
+        letter-spacing: 1px;
+        animation: fadeDown 1s ease;
+    }
+
+    main p.text-muted {
+        animation: fadeDown 1.2s ease;
+    }
+
+    @keyframes fadeDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* =========================
+   HERO / FEATURE SECTION
+   ========================= */
+    main img.img-fluid {
+        border-radius: 15px;
+        transition: 0.5s ease;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    main img.img-fluid:hover {
+        transform: scale(1.03);
+        filter: brightness(1.05);
+    }
+
+    main h3 {
+        color: #2E7D32;
+    }
+
+    /* =========================
+   LIST STYLING
+   ========================= */
+    main ul li {
+        padding: 5px 0;
+        transition: 0.3s;
+    }
+
+    main ul li:hover {
+        color: #2E7D32;
+        transform: translateX(5px);
+    }
+
+    /* =========================
+   CARD DESIGN (Premium Hover)
+   ========================= */
+    .card {
+        border-radius: 18px !important;
+        overflow: hidden;
+        background: #fff;
+        transition: all 0.4s ease;
+        position: relative;
+    }
+
+    .card::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(46, 125, 50, 0.15), rgba(27, 67, 50, 0.05));
+        top: 0;
+        left: -100%;
+        transition: 0.5s;
+    }
+
+    .card:hover::before {
+        left: 0;
+    }
+
+    .card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-title {
+        color: #1B4332;
+    }
+
+    .card-text {
+        font-size: 14px;
+    }
+
+    /* Card images zoom effect */
+    .card img {
+        transition: 0.5s ease;
+    }
+
+    .card:hover img {
+        transform: scale(1.1);
+    }
+
+    /* =========================
+   TIPS SECTION
+   ========================= */
+    .bg-light {
+        background: linear-gradient(135deg, #ffffff, #F1F8E9) !important;
+        border-left: 5px solid #2E7D32;
+        animation: fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* =========================
+   TABLE STYLING
+   ========================= */
+    table {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    table thead {
+        background: #1B4332 !important;
+        color: #fff;
+    }
+
+    table tbody tr {
+        transition: 0.3s;
+    }
+
+    table tbody tr:hover {
+        background: #F1F8E9;
+        transform: scale(1.01);
+    }
+
+    /* =========================
+   CTA SECTION (Premium Glow)
+   ========================= */
+    .text-center.bg-dark {
+        background: linear-gradient(135deg, #1B4332, #2E7D32) !important;
+        position: relative;
+        overflow: hidden;
+        animation: fadeUp 1.2s ease;
+    }
+
+    .text-center.bg-dark::after {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 60%);
+        top: -50%;
+        left: -50%;
+        animation: rotateGlow 6s linear infinite;
+    }
+
+    @keyframes rotateGlow {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .text-center.bg-dark h3 {
+        position: relative;
+        z-index: 2;
+    }
+
+    .text-center.bg-dark p {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+    @media (max-width: 768px) {
+
+        main h1 {
+            font-size: 26px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        main img.img-fluid {
+            margin-bottom: 15px;
+        }
+
+        .bg-light {
+            padding: 20px !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .card-title {
+            font-size: 16px;
+        }
+
+        table {
+            font-size: 13px;
+        }
+    }
+
+    .text-center.bg-dark h3,
+    .text-center.bg-dark p {
+        color: #ffffff;
+    }
+</style>
+
+<body>
+    <header>
+        <!-- HEADER START -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow">
+            <div class="container">
+
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="LOGO-removebg-preview.png" alt="GardenWorld Logo" style="height: 60px; width: auto; display: block;">
+                  </a>
+
+                <!-- Toggle -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+
+                        <!-- Gardening Tips -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="gardeningtips.html" data-bs-toggle="dropdown">
+                                Gardening Tips
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="gardeningtips.html">Gardening Tips</a></li>
+                                <li><a class="dropdown-item" href="gardeningtips.html#soil-section">Soil &
+                                        Fertilizers</a></li>
+                                <li><a class="dropdown-item" href="gardeningtips.html#pesticides-section">Pesticides</a>
+                                </li>
+                                <li><a class="dropdown-item" href="gardeningtips.html#seeds-section">Seeds Info</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Tools -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="gardeningTools.html" data-bs-toggle="dropdown">
+                                Tools
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="gardeningTools.html">Gardening Tools</a></li>
+                                <li><a class="dropdown-item" href="gardeningTools.html">How to Use</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Pots -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="pots&Accessories.html" data-bs-toggle="dropdown">
+                                Pots & Accessories
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="pots&Accessories.html">Pots & Accessories</a></li>
+                                <li><a class="dropdown-item" href="pots&Accessories.html">Pots</a></li>
+                                <li><a class="dropdown-item" href="pots&Accessories.html">Accessories</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Accessories -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="accessories.html">Accessories</a>
+                        </li>
+
+                        <!-- Shop -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+
+                        <!-- Books -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="book.html">Books</a>
+                        </li>
+
+                        <!-- Contact -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="CONTACT-.html">Contact</a>
+                        </li>
+
+                        <!-- Services -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        <!-- HEADER END -->
+    </header>
+
+
+    <main class="container my-5">
+
+        <!-- Page Heading -->
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Seeds Information</h1>
+            <p class="text-muted">Discover the best seeds for a healthy and beautiful garden</p>
+        </div>
+
+        <!-- Featured Section -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="seeds.png" class="img-fluid rounded shadow" alt="Seeds Image">
+            </div>
+            <div class="col-lg-6">
+                <h3 class="fw-bold">Choose the Right Seeds</h3>
+                <p class="text-muted">
+                    Selecting high-quality seeds is the first step towards successful gardening.
+                    Always choose seeds based on your climate, soil type, and season.
+                </p>
+                <ul class="list-unstyled">
+                    <li>✔ Seasonal compatibility</li>
+                    <li>✔ High germination rate</li>
+                    <li>✔ Disease resistance</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Seed Categories -->
+        <div class="row g-4 mb-5">
+
+            <!-- Card 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="Seeds image/vegetable seeds.jpeg" class="card-img-top" alt="Vegetable Seeds">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Vegetable Seeds</h5>
+                        <p class="card-text text-muted">
+                            Grow fresh vegetables like tomatoes, carrots, and spinach easily at home.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="Seeds image/Flower seeds.jpeg" class="card-img-top" alt="Flower Seeds">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Flower Seeds</h5>
+                        <p class="card-text text-muted">
+                            Add beauty to your garden with colorful flowers like roses, sunflowers, and tulips.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="Seeds image/Herb seed.jpeg" class="card-img-top" alt="Herb Seeds">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Herb Seeds</h5>
+                        <p class="card-text text-muted">
+                            Grow useful herbs like mint, basil, and coriander for cooking and health.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tips Section -->
+        <div class="bg-light p-4 rounded shadow-sm mb-5">
+            <h3 class="fw-bold mb-3">Seed Planting Tips</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul>
+                        <li>Use good quality soil</li>
+                        <li>Water regularly but avoid overwatering</li>
+                        <li>Keep seeds in sunlight</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li>Maintain proper spacing</li>
+                        <li>Check temperature conditions</li>
+                        <li>Use fertilizers if needed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seed Types Table -->
+        <div class="mb-5">
+            <h3 class="fw-bold mb-3">Popular Seed Types</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Seed Type</th>
+                            <th>Season</th>
+                            <th>Growth Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tomato</td>
+                            <td>Winter</td>
+                            <td>60-80 Days</td>
+                        </tr>
+                        <tr>
+                            <td>Sunflower</td>
+                            <td>Summer</td>
+                            <td>70-90 Days</td>
+                        </tr>
+                        <tr>
+                            <td>Mint</td>
+                            <td>All Seasons</td>
+                            <td>40-60 Days</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Call To Action -->
+        <div class="text-center bg-dark text-white p-5 rounded">
+            <h3 class="fw-bold">Start Your Gardening Journey Today!</h3>
+            <p class="mb-3">Choose the best seeds and grow your dream garden.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <!-- FOOTER START -->
+        <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+            <div class="container">
+                <div class="row">
+
+                    <!-- About -->
+                    <div class="col-md-4 mb-4">
+                        <h4 class="fw-bold">🌿 Garden World</h4>
+                        <p>
+                            Your one-stop solution for gardening tips, tools, accessories,
+                            and everything you need to grow a beautiful garden.
+                        </p>
+
+                        <!-- Social Icons -->
+                        <div class="social-icons mt-3">
+                            <a href="https://www.facebook.com/" class="social-link"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/" class="social-link"><i class="bi bi-instagram"></i></a>
+                            <a href="https://www.youtube.com/" class="social-link"><i class="bi bi-youtube"></i></a>
+                            <a href="https://x.com/" class="social-link"><i class="bi bi-twitter-x"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-md-2 mb-4">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="footer-link">Home</a></li>
+                            <li><a href="gardeningtips.html" class="footer-link">Tips</a></li>
+                            <li><a href="gardeningTools.html" class="footer-link">Tools</a></li>
+                            <li><a href="shop.html" class="footer-link">Shop</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="col-md-3 mb-4">
+                        <h5>Categories</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="soil&fertilizer.html" class="footer-link">Soil & Fertilizers</a></li>
+                            <li><a href="pesticides.html" class="footer-link">Pesticides</a></li>
+                            <li><a href="seedsinfo.html" class="footer-link">Seeds</a></li>
+                            <li><a href="pots&Accessories.html" class="footer-link">Pots & Accessories</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="col-md-3 mb-4">
+                        <h5>Subscribe</h5>
+                        <form id="subscribeForm" novalidate>
+
+                            <input type="email" class="form-control mb-2" id="subscribeEmail" placeholder="Enter email"
+                                required>
+                            <div class="invalid-feedback">Please enter a valid email</div>
+
+                            <button type="submit" class="btn btn-success w-100">Subscribe</button>
+
+                        </form>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <!-- Bottom -->
+                <div class="text-center">
+                    <p class="mb-0">© 2026 Garden World | All Rights Reserved</p>
+                </div>
+
+            </div>
+        </footer>
+        <!-- FOOTER END -->
+    </footer>
+
+    <!-- SUBSCRIBE SUCCESS MODAL -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Subscribed 🎉</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center">
+                    <p>You have successfully subscribed! 🌿</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscribe Form -->
+    <script>
+        (() => {
+            const subscribeForm = document.getElementById('subscribeForm');
+
+            subscribeForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (!subscribeForm.checkValidity()) {
+                    subscribeForm.classList.add('was-validated');
+                } else {
+                    // reset form
+                    subscribeForm.reset();
+                    subscribeForm.classList.remove('was-validated');
+
+                    // show modal
+                    const modal = new bootstrap.Modal(document.getElementById('subscribeModal'));
+                    modal.show();
+                }
+            });
+        })();
+    </script>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>

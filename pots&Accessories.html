@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Pots & Accessories</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+
+<style>
+  /* Header footer CSS Strat */
+  .navbar-nav .nav-link {
+    position: relative;
+    transition: 0.3s;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #d4ffdc !important;
+    transform: translateY(-2px);
+  }
+
+  /* Underline animation */
+  .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background: #ffffff;
+    transition: 0.3s;
+  }
+
+  .navbar-nav .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Dropdown animation */
+  .dropdown-menu {
+    border-radius: 10px;
+    animation: fadeIn 0.4s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .footer-link {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .footer-link:hover {
+    color: #00ff88;
+    padding-left: 5px;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    background: #222;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 18px;
+  }
+
+  .social-link:hover {
+    transform: scale(1.2) rotate(5deg);
+    background: #00ff88;
+    color: #000;
+    box-shadow: 0 0 10px #00ff88;
+  }
+
+  /* Header footer CSS End */
+
+  /* Card Style */
+  .pot-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+  }
+
+  .pot-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Image Fix */
+  .pot-img {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .pot-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+  }
+
+  /* Hover Zoom */
+  .pot-card:hover img {
+    transform: scale(1.1);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .pot-img {
+      height: 180px;
+    }
+  }
+
+  /* ================= GLOBAL THEME (NO HEADER/FOOTER EFFECT) ================= */
+  body {
+    background: #1B4332;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  /* MAIN CONTAINER ONLY */
+  main.container {
+    background: #F1F8E9;
+    border-radius: 25px;
+    padding: 40px 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    animation: fadePage 1s ease;
+  }
+
+  /* Page animation */
+  @keyframes fadePage {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ================= HEADINGS ================= */
+  h1,
+  h2,
+  h4 {
+    letter-spacing: 1px;
+    animation: slideDown 1s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .text-muted {
+    animation: fadeText 1.5s ease;
+  }
+
+  @keyframes fadeText {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* ================= CARD PREMIUM DESIGN ================= */
+  .pot-card {
+    border-radius: 20px !important;
+    overflow: hidden;
+    background: #F1F8E9 !important;
+    position: relative;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Card body styling */
+  .pot-card .card-body {
+    background: #F1F8E9;
+    padding: 25px 20px;
+    transition: 0.4s;
+  }
+
+  /* Title */
+  .pot-card h5 {
+    color: #2E7D32 !important;
+    font-size: 20px;
+    transition: 0.3s;
+  }
+
+  /* Text */
+  .pot-card p {
+    color: #2E7D32;
+    opacity: 0.85;
+  }
+
+  /* Hover Full Card */
+  .pot-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Hover inner change */
+  .pot-card:hover .card-body {
+    background: #2E7D32;
+  }
+
+  /* Text change on hover */
+  .pot-card:hover h5,
+  .pot-card:hover p {
+    color: #F1F8E9 !important;
+  }
+
+  /* ================= IMAGE ================= */
+  .pot-img {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .pot-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s ease;
+  }
+
+  /* Zoom effect */
+  .pot-card:hover img {
+    transform: scale(1.15);
+  }
+
+  /* Overlay */
+  .pot-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(27, 67, 50, 0.2);
+    opacity: 0;
+    transition: 0.4s;
+  }
+
+  .pot-card:hover .pot-img::after {
+    opacity: 1;
+  }
+
+  /* Border glow */
+  .pot-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    border: 2px solid #2E7D32;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  .pot-card:hover::before {
+    opacity: 1;
+  }
+
+  /* ================= CARD ENTRY ANIMATION ================= */
+  .pot-card {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: revealCard 0.8s forwards;
+  }
+
+  .pot-card:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+
+  .pot-card:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+
+  .pot-card:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  .pot-card:nth-child(4) {
+    animation-delay: 0.8s;
+  }
+
+  .pot-card:nth-child(5) {
+    animation-delay: 1s;
+  }
+
+  .pot-card:nth-child(6) {
+    animation-delay: 1.2s;
+  }
+
+  @keyframes revealCard {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ================= SECTION SPACING ================= */
+  #pots-section,
+  #accessories-section {
+    margin-top: 10px;
+  }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 768px) {
+
+    main.container {
+      padding: 25px 15px;
+    }
+
+    .pot-img {
+      height: 180px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+  }
+
+  /* ================= SMOOTH FEEL ================= */
+  * {
+    transition: all 0.2s ease-in-out;
+  }
+</style>
+
+<body>
+  <header>
+    <!-- HEADER START -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow">
+      <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="LOGO-removebg-preview.png" alt="GardenWorld Logo" style="height: 60px; width: auto; display: block;">
+        </a>
+
+        <!-- Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+
+            <li class="nav-item">
+              <a class="nav-link " href="index.html">Home</a>
+            </li>
+
+            <!-- Gardening Tips -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="gardeningtips.html" data-bs-toggle="dropdown">
+                Gardening Tips
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="gardeningtips.html">Gardening Tips</a></li>
+                <li><a class="dropdown-item" href="gardeningtips.html#soil-section">Soil &
+                    Fertilizers</a></li>
+                <li><a class="dropdown-item" href="gardeningtips.html#pesticides-section">Pesticides</a>
+                </li>
+                <li><a class="dropdown-item" href="gardeningtips.html#seeds-section">Seeds Info</a></li>
+              </ul>
+            </li>
+
+            <!-- Tools -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="gardeningTools.html" data-bs-toggle="dropdown">
+                Tools
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="gardeningTools.html">Gardening Tools</a></li>
+                <li><a class="dropdown-item" href="gardeningTools.html">How to Use</a></li>
+              </ul>
+            </li>
+
+            <!-- Pots -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="pots&Accessories.html" data-bs-toggle="dropdown">
+                Pots & Accessories
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="pots&Accessories.html">Pots & Accessories</a></li>
+                <li><a class="dropdown-item" href="pots&Accessories.html">Pots</a></li>
+                <li><a class="dropdown-item" href="pots&Accessories.html">Accessories</a></li>
+              </ul>
+            </li>
+
+            <!-- Accessories -->
+            <li class="nav-item">
+              <a class="nav-link" href="accessories.html">Accessories</a>
+            </li>
+
+            <!-- Shop -->
+            <li class="nav-item">
+              <a class="nav-link" href="shop.html">Shop</a>
+            </li>
+
+            <!-- Books -->
+            <li class="nav-item">
+              <a class="nav-link" href="book.html">Books</a>
+            </li>
+
+            <!-- Contact -->
+            <li class="nav-item">
+              <a class="nav-link" href="CONTACT-.html">Contact</a>
+            </li>
+
+            <!-- Services -->
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <!-- HEADER END -->
+  </header>
+
+  <main data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="70" tabindex="0"
+    style="scroll-behavior:smooth;">
+
+    <main class="container my-5">
+
+      <!-- Heading -->
+      <div class="text-center mb-5">
+        <h1 class="fw-bold text-success">Pots & Accessories</h1>
+        <p class="text-muted">Choose the perfect pots and stylish accessories for your garden</p>
+      </div>
+
+      <!-- Pots Section -->
+      <div class="row g-4" id="pots-section">
+
+        <!-- Pots -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card pot-card h-100">
+            <div class="pot-img">
+              <img src="Pots & Accessories/gardenpots.jpeg" alt="Pots Image">
+            </div>
+            <div class="card-body">
+              <h5 class="fw-bold text-success">Garden Pots</h5>
+              <p>Available in different sizes and materials for all types of plants.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pot Plates -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card pot-card h-100">
+            <div class="pot-img">
+              <img src="Pots & Accessories/pot plates.jpeg" alt="Plates Image">
+            </div>
+            <div class="card-body">
+              <h5 class="fw-bold text-success">Pot Plates</h5>
+              <p>Used under pots to collect excess water and keep surfaces clean.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hanging Pots -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card pot-card h-100">
+            <div class="pot-img">
+              <img src="Pots & Accessories/hanging pots.jpeg" alt="Hanging Pots">
+            </div>
+            <div class="card-body">
+              <h5 class="fw-bold text-success">Hanging Pots</h5>
+              <p>Perfect for balconies and indoor decoration with stylish look.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wall Mounted -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card pot-card h-100">
+            <div class="pot-img">
+              <img src="Pots & Accessories/Wall Mounted Pots.jpeg" alt="Wall Mounted">
+            </div>
+            <div class="card-body">
+              <h5 class="fw-bold text-success">Wall Mounted Pots</h5>
+              <p>Ideal for vertical gardening and saving space beautifully.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Railing Brackets -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card pot-card h-100">
+            <div class="pot-img">
+              <img src="Pots & Accessories/railing brackets.jpeg" alt="Railing Brackets">
+            </div>
+            <div class="card-body">
+              <h5 class="fw-bold text-success">Railing Brackets</h5>
+              <p>Attach pots safely to railings for a modern garden look.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pot Hangers -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card pot-card h-100">
+            <div class="pot-img">
+              <img src="Pots & Accessories/pot hangers.jpeg" alt="Pot Hangers">
+            </div>
+            <div class="card-body">
+              <h5 class="fw-bold text-success">Pot Hangers</h5>
+              <p>Strong and stylish hangers for suspending pots anywhere.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Accessories Section -->
+      <div class="text-center mt-5 mb-4" id="accessories-section">
+        <h2 class="fw-bold text-success">Garden Accessories</h2>
+        <p class="text-muted">Enhance the beauty of your garden with decorative items</p>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Miniature Toys -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card pot-card h-100">
+            <div class="pot-img">
+              <img src="Pots & Accessories/toys.jpeg" alt="Mini Toys">
+            </div>
+            <div class="card-body">
+              <h5 class="fw-bold text-success">Miniature Garden Toys</h5>
+              <p>Small decorative items that make your garden look lively and fun.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pebbles -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card pot-card h-100">
+            <div class="pot-img">
+              <img src="Pots & Accessories/decorative.jpeg" alt="Pebbles">
+            </div>
+            <div class="card-body">
+              <h5 class="fw-bold text-success">Decorative Pebbles</h5>
+              <p>Colorful stones used for decoration and improving soil aesthetics.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Garden Decor -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card pot-card h-100">
+            <div class="pot-img">
+              <img src="Pots & Accessories/garden decoration.jpeg" alt="Decor">
+            </div>
+            <div class="card-body">
+              <h5 class="fw-bold text-success">Garden Decorations</h5>
+              <p>Stylish accessories to give your garden a premium and attractive look.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Text -->
+      <div class="text-center mt-5">
+        <h4 class="fw-bold text-success">Make Your Garden Beautiful 🌿</h4>
+        <p class="text-muted w-75 mx-auto">
+          Choosing the right pots and accessories enhances both plant growth and overall beauty of your garden.
+        </p>
+      </div>
+
+    </main>
+
+  </main>
+
+  <footer>
+    <!-- FOOTER START -->
+    <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+      <div class="container">
+        <div class="row">
+
+          <!-- About -->
+          <div class="col-md-4 mb-4">
+            <h4 class="fw-bold">🌿 Garden World</h4>
+            <p>
+              Your one-stop solution for gardening tips, tools, accessories,
+              and everything you need to grow a beautiful garden.
+            </p>
+
+            <!-- Social Icons -->
+            <div class="social-icons mt-3">
+              <a href="https://www.facebook.com/" class="social-link"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/" class="social-link"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.youtube.com/" class="social-link"><i class="bi bi-youtube"></i></a>
+              <a href="https://x.com/" class="social-link"><i class="bi bi-twitter-x"></i></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-md-2 mb-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="gardeningtips.html" class="footer-link">Tips</a></li>
+              <li><a href="gardeningTools.html" class="footer-link">Tools</a></li>
+              <li><a href="shop.html" class="footer-link">Shop</a></li>
+            </ul>
+          </div>
+
+          <!-- Categories -->
+          <div class="col-md-3 mb-4">
+            <h5>Categories</h5>
+            <ul class="list-unstyled">
+              <li><a href="soil&fertilizer.html" class="footer-link">Soil & Fertilizers</a></li>
+              <li><a href="pesticides.html" class="footer-link">Pesticides</a></li>
+              <li><a href="seedsinfo.html" class="footer-link">Seeds</a></li>
+              <li><a href="pots&Accessories.html" class="footer-link">Pots & Accessories</a></li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="col-md-3 mb-4">
+            <h5>Subscribe</h5>
+            <form id="subscribeForm" novalidate>
+
+              <input type="email" class="form-control mb-2" id="subscribeEmail" placeholder="Enter email" required>
+              <div class="invalid-feedback">Please enter a valid email</div>
+
+              <button type="submit" class="btn btn-success w-100">Subscribe</button>
+
+            </form>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <!-- Bottom -->
+        <div class="text-center">
+          <p class="mb-0">© 2026 Garden World | All Rights Reserved</p>
+        </div>
+
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+  </footer>
+
+  <!-- SUBSCRIBE SUCCESS MODAL -->
+  <div class="modal fade" id="subscribeModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">Subscribed 🎉</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body text-center">
+          <p>You have successfully subscribed! 🌿</p>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-success" data-bs-dismiss="modal">OK</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Subscribe Form -->
+  <script>
+    (() => {
+      const subscribeForm = document.getElementById('subscribeForm');
+
+      subscribeForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (!subscribeForm.checkValidity()) {
+          subscribeForm.classList.add('was-validated');
+        } else {
+          // reset form
+          subscribeForm.reset();
+          subscribeForm.classList.remove('was-validated');
+
+          // show modal
+          const modal = new bootstrap.Modal(document.getElementById('subscribeModal'));
+          modal.show();
+        }
+      });
+    })();
+  </script>
+
+  <!-- active -->
+  <script>
+    const currentPage = window.location.pathname.split("/").pop();
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const linkPage = link.getAttribute("href");
+
+      if (linkPage === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

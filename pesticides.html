@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Pesticides</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<style>
+    /* Header footer CSS Strat */
+    .navbar-nav .nav-link {
+        position: relative;
+        transition: 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #d4ffdc !important;
+        transform: translateY(-2px);
+    }
+
+    /* Underline animation */
+    .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background: #ffffff;
+        transition: 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+        width: 100%;
+    }
+
+    /* Dropdown animation */
+    .dropdown-menu {
+        border-radius: 10px;
+        animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .footer-link {
+        color: #ccc;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer-link:hover {
+        color: #00ff88;
+        padding-left: 5px;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        background: #222;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 18px;
+    }
+
+    .social-link:hover {
+        transform: scale(1.2) rotate(5deg);
+        background: #00ff88;
+        color: #000;
+        box-shadow: 0 0 10px #00ff88;
+    }
+
+    /* Header footer CSS End */
+
+    .pesticide-card img,
+    .pesticide-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    /* Card Styling */
+    .pesticide-card {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: 0.3s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .pesticide-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Section spacing improvement */
+    h1,
+    h3 {
+        letter-spacing: 0.5px;
+    }
+</style>
+
+<style>
+    /* =========================
+   GLOBAL THEME
+========================= */
+    body {
+        background: linear-gradient(180deg, #F1F8E9 0%, #ffffff 100%);
+        font-family: "Segoe UI", sans-serif;
+        overflow-x: hidden;
+    }
+
+    /* Smooth fade-in page load */
+    main {
+        animation: pageFade 0.8s ease-in-out;
+    }
+
+    @keyframes pageFade {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* =========================
+   HEADINGS
+========================= */
+    h1,
+    h3 {
+        color: #1B4332;
+        letter-spacing: 0.5px;
+        position: relative;
+        animation: slideUp 0.8s ease;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(25px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* =========================
+   HERO / FEATURE IMAGE
+========================= */
+    .pesticide-img {
+        border-radius: 18px;
+        transition: all 0.5s ease;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        animation: zoomIn 1s ease;
+    }
+
+    .pesticide-img:hover {
+        transform: scale(1.03) rotate(-1deg);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+    }
+
+    @keyframes zoomIn {
+        from {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* =========================
+   TEXT SECTION ENHANCEMENT
+========================= */
+    p {
+        line-height: 1.7;
+    }
+
+    ul li {
+        margin-bottom: 6px;
+        position: relative;
+        padding-left: 10px;
+    }
+
+    ul li::before {
+        content: "✔";
+        color: #2E7D32;
+        font-weight: bold;
+        margin-right: 8px;
+    }
+
+    /* =========================
+   CARD DESIGN
+========================= */
+    .pesticide-card {
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        position: relative;
+    }
+
+    .pesticide-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, transparent, rgba(46, 125, 50, 0.15), transparent);
+        transition: 0.5s;
+    }
+
+    .pesticide-card:hover::before {
+        left: 100%;
+    }
+
+    .pesticide-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .pesticide-card img {
+        transition: transform 0.6s ease;
+    }
+
+    .pesticide-card:hover img {
+        transform: scale(1.1);
+    }
+
+    /* Card title highlight */
+    .card-title {
+        color: #1B4332;
+        transition: 0.3s;
+    }
+
+    .pesticide-card:hover .card-title {
+        color: #2E7D32;
+    }
+
+    /* =========================
+   SECTION BOX (TIPS)
+========================= */
+    .bg-light {
+        border-radius: 18px;
+        background: linear-gradient(135deg, #ffffff, #F1F8E9) !important;
+        transition: 0.4s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .bg-light:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    /* =========================
+   TABLE DESIGN
+========================= */
+    .table {
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+    }
+
+    .table thead {
+        background: #1B4332 !important;
+        color: #fff;
+    }
+
+    .table tbody tr {
+        transition: 0.3s;
+    }
+
+    .table tbody tr:hover {
+        background: #F1F8E9;
+        transform: scale(1.01);
+    }
+
+    /* =========================
+   CTA SECTION
+========================= */
+    .text-center.bg-dark {
+        background: linear-gradient(135deg, #1B4332, #2E7D32) !important;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+        animation: fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .text-center.bg-dark::after {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 60%);
+        animation: rotateGlow 8s linear infinite;
+    }
+
+    @keyframes rotateGlow {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* CTA text pop */
+    .text-center.bg-dark h3 {
+        animation: pulseText 2s infinite;
+    }
+
+    @keyframes pulseText {
+
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.03);
+        }
+    }
+
+    /* =========================
+   BUTTON HOVER (Bootstrap override safe)
+========================= */
+    .btn {
+        transition: all 0.3s ease !important;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px) scale(1.03);
+    }
+
+    /* =========================
+   RESPONSIVE DESIGN
+========================= */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 26px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+        .pesticide-img {
+            height: auto;
+        }
+
+        .pesticide-card:hover {
+            transform: translateY(-5px);
+        }
+    }
+</style>
+
+<style>
+    /* =========================
+   GLOBAL THEME
+========================= */
+    body {
+        background: linear-gradient(180deg, #F1F8E9 0%, #ffffff 100%);
+        font-family: "Segoe UI", sans-serif;
+        overflow-x: hidden;
+    }
+
+    /* Smooth fade-in page load */
+    main {
+        animation: pageFade 0.8s ease-in-out;
+    }
+
+    @keyframes pageFade {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* =========================
+   HEADINGS
+========================= */
+    h1,
+    h3 {
+        color: #1B4332;
+        letter-spacing: 0.5px;
+        position: relative;
+        animation: slideUp 0.8s ease;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(25px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* =========================
+   FEATURE IMAGE
+========================= */
+    .pesticide-img {
+        border-radius: 18px;
+        transition: all 0.5s ease;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        animation: zoomIn 1s ease;
+    }
+
+    .pesticide-img:hover {
+        transform: scale(1.03) rotate(-1deg);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+    }
+
+    @keyframes zoomIn {
+        from {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* =========================
+   TEXT
+========================= */
+    p {
+        line-height: 1.7;
+    }
+
+    /* REMOVE TICK ICON FROM LIST */
+    ul li {
+        margin-bottom: 6px;
+        position: relative;
+        padding-left: 0;
+    }
+
+    ul li::before {
+        content: none !important;
+        /* 🔥 removed tick sign */
+    }
+
+    /* =========================
+   CARD DESIGN
+========================= */
+    .pesticide-card {
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        position: relative;
+    }
+
+    .pesticide-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, transparent, rgba(46, 125, 50, 0.15), transparent);
+        transition: 0.5s;
+    }
+
+    .pesticide-card:hover::before {
+        left: 100%;
+    }
+
+    .pesticide-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .pesticide-card img {
+        transition: transform 0.6s ease;
+    }
+
+    .pesticide-card:hover img {
+        transform: scale(1.1);
+    }
+
+    /* =========================
+   TABLE
+========================= */
+    .table thead {
+        background: #1B4332 !important;
+        color: #fff;
+    }
+
+    .table tbody tr:hover {
+        background: #F1F8E9;
+        transform: scale(1.01);
+    }
+
+    /* =========================
+   CTA SECTION FIX
+========================= */
+    /* KEEP YOUR GARDEN SAFE TEXT WHITE */
+    .text-center.bg-dark h3,
+    .text-center.bg-dark p {
+        color: #ffffff !important;
+    }
+
+    /* CTA background glow */
+    .text-center.bg-dark {
+        background: linear-gradient(135deg, #1B4332, #2E7D32) !important;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* =========================
+   BUTTON HOVER
+========================= */
+    .btn {
+        transition: all 0.3s ease !important;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px) scale(1.03);
+    }
+
+    /* =========================
+   RESPONSIVE
+========================= */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 26px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <!-- HEADER START -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow">
+            <div class="container">
+
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="LOGO-removebg-preview.png" alt="GardenWorld Logo" style="height: 60px; width: auto; display: block;">
+                  </a>
+                <!-- Toggle -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+
+                        <!-- Gardening Tips -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="gardeningtips.html" data-bs-toggle="dropdown">
+                                Gardening Tips
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="gardeningtips.html">Gardening Tips</a></li>
+                                <li><a class="dropdown-item" href="gardeningtips.html#soil-section">Soil &
+                                        Fertilizers</a></li>
+                                <li><a class="dropdown-item" href="gardeningtips.html#pesticides-section">Pesticides</a>
+                                </li>
+                                <li><a class="dropdown-item" href="gardeningtips.html#seeds-section">Seeds Info</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Tools -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="gardeningTools.html" data-bs-toggle="dropdown">
+                                Tools
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="gardeningTools.html">Gardening Tools</a></li>
+                                <li><a class="dropdown-item" href="gardeningTools.html">How to Use</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Pots -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="pots&Accessories.html" data-bs-toggle="dropdown">
+                                Pots & Accessories
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="pots&Accessories.html">Pots & Accessories</a></li>
+                                <li><a class="dropdown-item" href="pots&Accessories.html">Pots</a></li>
+                                <li><a class="dropdown-item" href="pots&Accessories.html">Accessories</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Accessories -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="accessories.html">Accessories</a>
+                        </li>
+
+                        <!-- Shop -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+
+                        <!-- Books -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="book.html">Books</a>
+                        </li>
+
+                        <!-- Contact -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="CONTACT-.html">Contact</a>
+                        </li>
+
+                        <!-- Services -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        <!-- HEADER END -->
+    </header>
+
+
+    <main class="container my-5">
+
+        <!-- Page Heading -->
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Pesticides for Plants</h1>
+            <p class="text-muted">Protect your garden from pests with safe and effective solutions</p>
+        </div>
+
+        <!-- Featured Section -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="pesticides images/pesticides.jpeg" class="img-fluid rounded shadow pesticide-img"
+                    alt="Pesticides">
+            </div>
+            <div class="col-lg-6">
+                <h3 class="fw-bold">Why Pesticides Are Important?</h3>
+                <p class="text-muted">
+                    Pesticides help protect plants from insects, fungi, and diseases that can damage your garden.
+                    Choosing the right pesticide ensures healthy growth and better yield.
+                </p>
+                <ul class="list-unstyled">
+                    <li>✔ Protects plants from harmful insects</li>
+                    <li>✔ Improves plant growth</li>
+                    <li>✔ Prevents diseases</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Types of Pesticides -->
+        <div class="row g-4 mb-5">
+
+            <!-- Card 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card pesticide-card h-100">
+                    <img src="pesticides images/Organic pesticides.jpeg" class="card-img-top" alt="Organic Pesticides">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Organic Pesticides</h5>
+                        <p class="text-muted">
+                            Natural pesticides made from plants and minerals. Safe for environment and humans.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card pesticide-card h-100">
+                    <img src="pesticides images/Chemical Pesticides.jpeg" class="card-img-top"
+                        alt="Chemical Pesticides">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Chemical Pesticides</h5>
+                        <p class="text-muted">
+                            Strong and effective for controlling severe pest problems quickly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card pesticide-card h-100">
+                    <img src="pesticides images/Biological Control.jpeg" class="card-img-top" alt="Chemical Pesticides">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Biological Control</h5>
+                        <p class="text-muted">
+                            Uses natural predators like insects to control harmful pests in your garden.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Usage Tips -->
+        <div class="bg-light p-4 rounded shadow-sm mb-5">
+            <h3 class="fw-bold mb-3">Safe Usage Tips</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul>
+                        <li>Use recommended quantity only</li>
+                        <li>Wear gloves while spraying</li>
+                        <li>Apply in early morning or evening</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li>Keep away from children</li>
+                        <li>Avoid spraying during strong wind</li>
+                        <li>Store in a safe place</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="mb-5">
+            <h3 class="fw-bold mb-3">Common Pesticides Guide</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover text-center align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Pesticide Type</th>
+                            <th>Used For</th>
+                            <th>Application</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Neem Oil</td>
+                            <td>Insects & Aphids</td>
+                            <td>Spray on leaves</td>
+                        </tr>
+                        <tr>
+                            <td>Insecticide Spray</td>
+                            <td>General pests</td>
+                            <td>Direct spray</td>
+                        </tr>
+                        <tr>
+                            <td>Fungicide</td>
+                            <td>Fungal diseases</td>
+                            <td>Mix with water</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center bg-dark text-white p-5 rounded">
+            <h3 class="fw-bold">Keep Your Garden Safe & Healthy 🌿</h3>
+            <p class="mb-3">Use the right pesticide and protect your plants effectively.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <!-- FOOTER START -->
+        <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+            <div class="container">
+                <div class="row">
+
+                    <!-- About -->
+                    <div class="col-md-4 mb-4">
+                        <h4 class="fw-bold">🌿 Garden World</h4>
+                        <p>
+                            Your one-stop solution for gardening tips, tools, accessories,
+                            and everything you need to grow a beautiful garden.
+                        </p>
+
+                        <!-- Social Icons -->
+                        <div class="social-icons mt-3">
+                            <a href="https://www.facebook.com/" class="social-link"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/" class="social-link"><i class="bi bi-instagram"></i></a>
+                            <a href="https://www.youtube.com/" class="social-link"><i class="bi bi-youtube"></i></a>
+                            <a href="https://x.com/" class="social-link"><i class="bi bi-twitter-x"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-md-2 mb-4">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="footer-link">Home</a></li>
+                            <li><a href="gardeningtips.html" class="footer-link">Tips</a></li>
+                            <li><a href="gardeningTools.html" class="footer-link">Tools</a></li>
+                            <li><a href="shop.html" class="footer-link">Shop</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="col-md-3 mb-4">
+                        <h5>Categories</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="soil&fertilizer.html" class="footer-link">Soil & Fertilizers</a></li>
+                            <li><a href="pesticides.html" class="footer-link">Pesticides</a></li>
+                            <li><a href="seedsinfo.html" class="footer-link">Seeds</a></li>
+                            <li><a href="pots&Accessories.html" class="footer-link">Pots & Accessories</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="col-md-3 mb-4">
+                        <h5>Subscribe</h5>
+                        <form id="subscribeForm" novalidate>
+
+                            <input type="email" class="form-control mb-2" id="subscribeEmail" placeholder="Enter email"
+                                required>
+                            <div class="invalid-feedback">Please enter a valid email</div>
+
+                            <button type="submit" class="btn btn-success w-100">Subscribe</button>
+
+                        </form>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <!-- Bottom -->
+                <div class="text-center">
+                    <p class="mb-0">© 2026 Garden World | All Rights Reserved</p>
+                </div>
+
+            </div>
+        </footer>
+        <!-- FOOTER END -->
+    </footer>
+
+    <!-- SUBSCRIBE SUCCESS MODAL -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Subscribed 🎉</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center">
+                    <p>You have successfully subscribed! 🌿</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscribe Form -->
+    <script>
+        (() => {
+            const subscribeForm = document.getElementById('subscribeForm');
+
+            subscribeForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (!subscribeForm.checkValidity()) {
+                    subscribeForm.classList.add('was-validated');
+                } else {
+                    // reset form
+                    subscribeForm.reset();
+                    subscribeForm.classList.remove('was-validated');
+
+                    // show modal
+                    const modal = new bootstrap.Modal(document.getElementById('subscribeModal'));
+                    modal.show();
+                }
+            });
+        })();
+    </script>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

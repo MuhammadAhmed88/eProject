@@ -1,0 +1,880 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Gardening Tools</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<style>
+    /* Header footer CSS Strat */
+    .navbar-nav .nav-link {
+        position: relative;
+        transition: 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #d4ffdc !important;
+        transform: translateY(-2px);
+    }
+
+    .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background: #ffffff;
+        transition: 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        border-radius: 10px;
+        animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .footer-link {
+        color: #ccc;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer-link:hover {
+        color: #00ff88;
+        padding-left: 5px;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        background: #222;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 18px;
+    }
+
+    .social-link:hover {
+        transform: scale(1.2) rotate(5deg);
+        background: #00ff88;
+        color: #000;
+        box-shadow: 0 0 10px #00ff88;
+    }
+
+    /* Card Style */
+    .tool-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: 0.3s ease;
+    }
+
+    .tool-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .tool-img {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+    }
+
+    .tool-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s;
+    }
+
+    .tool-card:hover img {
+        transform: scale(1.1);
+    }
+
+    .tool-video {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .tool-video iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    @media (max-width: 768px) {
+        .tool-img {
+            height: 180px;
+        }
+
+        .tool-video {
+            height: 180px;
+        }
+    }
+
+    /* ================= GLOBAL THEME ================= */
+    body {
+        background: #2E7D32;
+        font-family: 'Segoe UI', sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    /* Container white glass effect */
+    main.container {
+        background: #F1F8E9;
+        border-radius: 20px;
+        padding: 40px 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        animation: fadeInPage 1s ease;
+    }
+
+    /* Page Fade */
+    @keyframes fadeInPage {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ================= HEADING ================= */
+    h1 {
+        letter-spacing: 1px;
+        animation: slideDown 1s ease;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .text-muted {
+        animation: fadeIn 1.5s ease;
+    }
+
+    /* ================= CARDS ================= */
+    .tool-card {
+        border-radius: 18px;
+        overflow: hidden;
+        background: #ffffff;
+        position: relative;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Glow Border Effect */
+    .tool-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 18px;
+        padding: 2px;
+        background: linear-gradient(120deg, #2E7D32, transparent, #2E7D32);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: 0.4s;
+    }
+
+    .tool-card:hover::before {
+        opacity: 1;
+    }
+
+    /* Hover Animation */
+    .tool-card:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ================= IMAGE ================= */
+    .tool-img {
+        height: 220px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .tool-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.6s ease;
+    }
+
+    /* Zoom + Light effect */
+    .tool-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(46, 125, 50, 0.15);
+        opacity: 0;
+        transition: 0.4s;
+    }
+
+    .tool-card:hover .tool-img img {
+        transform: scale(1.15) rotate(1deg);
+    }
+
+    .tool-card:hover .tool-img::after {
+        opacity: 1;
+    }
+
+    /* ================= TEXT ================= */
+    .card-body h5 {
+        transition: 0.3s;
+    }
+
+    .tool-card:hover h5 {
+        color: #2E7D32;
+        letter-spacing: 1px;
+    }
+
+    .card-body p {
+        transition: 0.3s;
+    }
+
+    /* ================= BUTTON STYLE (if added later) ================= */
+    .btn {
+        transition: 0.3s;
+        border-radius: 30px;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+    /* ================= SECTION BOTTOM ================= */
+    h3 {
+        animation: fadeInUp 1.2s ease;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ================= SCROLL ANIMATION ================= */
+    .tool-card {
+        opacity: 0;
+        transform: translateY(40px);
+        animation: cardReveal 0.8s forwards;
+    }
+
+    .tool-card:nth-child(1) {
+        animation-delay: 0.2s;
+    }
+
+    .tool-card:nth-child(2) {
+        animation-delay: 0.4s;
+    }
+
+    .tool-card:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+
+    .tool-card:nth-child(4) {
+        animation-delay: 0.8s;
+    }
+
+    .tool-card:nth-child(5) {
+        animation-delay: 1s;
+    }
+
+    .tool-card:nth-child(6) {
+        animation-delay: 1.2s;
+    }
+
+    @keyframes cardReveal {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+
+        main.container {
+            padding: 25px 15px;
+        }
+
+        .tool-img {
+            height: 180px;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+    }
+
+    /* ================= SMOOTH HOVER FEEL ================= */
+    * {
+        transition: all 0.2s ease-in-out;
+    }
+
+    /* ================= FIXED PREMIUM CARD DESIGN ================= */
+
+    .tool-card {
+        border-radius: 20px !important;
+        overflow: hidden;
+        background: #F1F8E9 !important;
+        position: relative;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Inner Card Body */
+    .tool-card .card-body {
+        background: #F1F8E9;
+        padding: 25px 20px;
+        transition: 0.4s;
+    }
+
+    /* Title */
+    .tool-card h5 {
+        color: #2E7D32 !important;
+        font-size: 20px;
+        transition: 0.3s;
+    }
+
+    /* Description */
+    .tool-card p {
+        color: #2E7D32;
+        opacity: 0.8;
+    }
+
+    /* Hover Full Card */
+    .tool-card:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Hover Inner Effect */
+    .tool-card:hover .card-body {
+        background: #2E7D32;
+    }
+
+    /* Text change on hover */
+    .tool-card:hover h5,
+    .tool-card:hover p {
+        color: #F1F8E9 !important;
+    }
+
+    /* Highlight "How to Use" */
+    .tool-card .fw-bold {
+        color: #2E7D32;
+    }
+
+    .tool-card:hover .fw-bold {
+        color: #F1F8E9;
+    }
+
+    /* Image Section */
+    .tool-img {
+        height: 220px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* Image Smooth Zoom */
+    .tool-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s ease;
+    }
+
+    .tool-card:hover img {
+        transform: scale(1.12);
+    }
+
+    /* Premium Overlay */
+    .tool-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(46, 125, 50, 0.2);
+        opacity: 0;
+        transition: 0.4s;
+    }
+
+    .tool-card:hover .tool-img::after {
+        opacity: 1;
+    }
+
+    /* Soft border glow */
+    .tool-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        border: 2px solid #2E7D32;
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    .tool-card:hover::before {
+        opacity: 1;
+    }
+
+    /* ================= EXTRA PREMIUM FEEL ================= */
+
+    /* Smooth card entry */
+    .tool-card {
+        opacity: 0;
+        transform: translateY(40px);
+        animation: smoothReveal 0.8s forwards;
+    }
+
+    .tool-card:nth-child(1) {
+        animation-delay: 0.2s;
+    }
+
+    .tool-card:nth-child(2) {
+        animation-delay: 0.4s;
+    }
+
+    .tool-card:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+
+    .tool-card:nth-child(4) {
+        animation-delay: 0.8s;
+    }
+
+    .tool-card:nth-child(5) {
+        animation-delay: 1s;
+    }
+
+    .tool-card:nth-child(6) {
+        animation-delay: 1.2s;
+    }
+
+    @keyframes smoothReveal {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<body>
+    <header>
+
+        <!-- HEADER START -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow">
+            <div class="container">
+
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="LOGO-removebg-preview.png" alt="GardenWorld Logo" style="height: 60px; width: auto; display: block;">
+                  </a>
+
+                <!-- Toggle -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+
+                        <!-- Gardening Tips -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="gardeningtips.html" data-bs-toggle="dropdown">
+                                Gardening Tips
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="gardeningtips.html">Gardening Tips</a></li>
+                                <li><a class="dropdown-item" href="gardeningtips.html#soil-section">Soil &
+                                        Fertilizers</a></li>
+                                <li><a class="dropdown-item" href="gardeningtips.html#pesticides-section">Pesticides</a>
+                                </li>
+                                <li><a class="dropdown-item" href="gardeningtips.html#seeds-section">Seeds Info</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Tools -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="gardeningTools.html" data-bs-toggle="dropdown">
+                                Tools
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#tools-top">Gardening Tools</a></li>
+                                <li><a class="dropdown-item" href="#tools-cards">How to Use</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Pots -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="pots&Accessories.html" data-bs-toggle="dropdown">
+                                Pots & Accessories
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="pots&Accessories.html">Pots & Accessories</a></li>
+                                <li><a class="dropdown-item" href="pots&Accessories.html">Pots</a></li>
+                                <li><a class="dropdown-item" href="pots&Accessories.html">Accessories</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="accessories.html">Accessories</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Shop</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Books</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        <!-- HEADER END -->
+    </header>
+
+    <main data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="70" tabindex="0"
+        style="scroll-behavior:smooth;">
+
+        <main class="container my-5" id="tools-top">
+
+            <!-- Heading -->
+            <div class="text-center mb-5">
+                <h1 class="fw-bold text-success">Gardening Tools</h1>
+                <p class="text-muted">Explore essential tools for smart gardening</p>
+            </div>
+
+            <div class="row g-4" id="tools-cards">
+
+                <!-- Cards Row -->
+                <div class="row g-4">
+
+                    <!-- Card 1 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card tool-card h-100 shadow-sm border-0">
+
+                            <div class="tool-img">
+                                <img src="ToolsImage/shovel.jpeg" class="img-fluid rounded-top" alt="Tool Image">
+                            </div>
+
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold text-success">Shovel</h5>
+                                <p>Used for digging soil and planting trees.</p>
+
+                                <p class="fw-bold mb-1">How to Use:</p>
+                                <p class="small text-muted">Push into soil using foot pressure.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card tool-card h-100 shadow-sm border-0">
+
+                            <div class="tool-img">
+                                <img src="ToolsImage/wateringcan.jpeg" class="img-fluid rounded-top" alt="Tool Image">
+                            </div>
+
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold text-success">Watering Can</h5>
+                                <p>Used to water plants gently.</p>
+
+                                <p class="fw-bold mb-1">How to Use:</p>
+                                <p class="small text-muted">Pour slowly for even watering.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card tool-card h-100 shadow-sm border-0">
+
+                            <div class="tool-img">
+                                <img src="ToolsImage/pruner.jpeg" class="img-fluid rounded-top" alt="Tool Image">
+                            </div>
+
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold text-success">Pruner</h5>
+                                <p>Used for trimming plants.</p>
+
+                                <p class="fw-bold mb-1">How to Use:</p>
+                                <p class="small text-muted">Cut branches at clean angles.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card tool-card h-100 shadow-sm border-0">
+
+                            <div class="tool-img">
+                                <img src="ToolsImage/rake.jpeg" class="img-fluid rounded-top" alt="Tool Image">
+                            </div>
+
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold text-success">Rake</h5>
+                                <p>Used for leveling soil and cleaning leaves.</p>
+
+                                <p class="fw-bold mb-1">How to Use:</p>
+                                <p class="small text-muted">Pull across soil surface.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card tool-card h-100 shadow-sm border-0">
+
+                            <div class="tool-img">
+                                <img src="ToolsImage/handTrowe.jpeg" class="img-fluid rounded-top" alt="Tool Image">
+                            </div>
+
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold text-success">Hand Trowel</h5>
+                                <p>Perfect for small planting work.</p>
+
+                                <p class="fw-bold mb-1">How to Use:</p>
+                                <p class="small text-muted">Dig small holes easily.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card tool-card h-100 shadow-sm border-0">
+
+                            <div class="tool-img">
+                                <img src="ToolsImage/fork.jpeg" class="img-fluid rounded-top" alt="Tool Image">
+                            </div>
+
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold text-success">Garden Fork</h5>
+                                <p>Used to loosen and mix soil.</p>
+
+                                <p class="fw-bold mb-1">How to Use:</p>
+                                <p class="small text-muted">Lift soil to break clumps.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="text-center mt-5">
+                <h3 class="fw-bold text-success">Why Good Tools Matter?</h3>
+                <p class="text-muted w-75 mx-auto">
+                    Good tools make gardening easier, faster and more enjoyable.
+                </p>
+            </div>
+
+        </main>
+
+    </main>
+
+    <footer>
+        <!-- FOOTER START -->
+        <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+            <div class="container">
+                <div class="row">
+
+                    <!-- About -->
+                    <div class="col-md-4 mb-4">
+                        <h4 class="fw-bold">🌿 Garden World</h4>
+                        <p>
+                            Your one-stop solution for gardening tips, tools, accessories,
+                            and everything you need to grow a beautiful garden.
+                        </p>
+
+                        <!-- Social Icons -->
+                        <div class="social-icons mt-3">
+                            <a href="https://www.facebook.com/" class="social-link"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/" class="social-link"><i class="bi bi-instagram"></i></a>
+                            <a href="https://www.youtube.com/" class="social-link"><i class="bi bi-youtube"></i></a>
+                            <a href="https://x.com/" class="social-link"><i class="bi bi-twitter-x"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-md-2 mb-4">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="footer-link">Home</a></li>
+                            <li><a href="gardeningtips.html" class="footer-link">Tips</a></li>
+                            <li><a href="gardeningTools.html" class="footer-link">Tools</a></li>
+                            <li><a href="shop.html" class="footer-link">Shop</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="col-md-3 mb-4">
+                        <h5>Categories</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="soil&fertilizer.html" class="footer-link">Soil & Fertilizers</a></li>
+                            <li><a href="pesticides.html" class="footer-link">Pesticides</a></li>
+                            <li><a href="seedsinfo.html" class="footer-link">Seeds</a></li>
+                            <li><a href="pots&Accessories.html" class="footer-link">Pots & Accessories</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="col-md-3 mb-4">
+                        <h5>Subscribe</h5>
+                        <form id="subscribeForm" novalidate>
+
+                            <input type="email" class="form-control mb-2" id="subscribeEmail" placeholder="Enter email"
+                                required>
+                            <div class="invalid-feedback">Please enter a valid email</div>
+
+                            <button type="submit" class="btn btn-success w-100">Subscribe</button>
+
+                        </form>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <!-- Bottom -->
+                <div class="text-center">
+                    <p class="mb-0">© 2026 Garden World | All Rights Reserved</p>
+                </div>
+
+            </div>
+        </footer>
+        <!-- FOOTER END -->
+    </footer>
+
+    <!-- SUBSCRIBE SUCCESS MODAL -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Subscribed 🎉</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center">
+                    <p>You have successfully subscribed! 🌿</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscribe Form -->
+    <script>
+        (() => {
+            const subscribeForm = document.getElementById('subscribeForm');
+
+            subscribeForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (!subscribeForm.checkValidity()) {
+                    subscribeForm.classList.add('was-validated');
+                } else {
+                    // reset form
+                    subscribeForm.reset();
+                    subscribeForm.classList.remove('was-validated');
+
+                    // show modal
+                    const modal = new bootstrap.Modal(document.getElementById('subscribeModal'));
+                    modal.show();
+                }
+            });
+        })();
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

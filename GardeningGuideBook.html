@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Complete Gardening Guide</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        /* Header footer CSS Strat */
+        .navbar-nav .nav-link {
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #d4ffdc !important;
+            transform: translateY(-2px);
+        }
+
+        /* Underline animation */
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            left: 0;
+            bottom: 0;
+            background: #ffffff;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown animation */
+        .dropdown-menu {
+            border-radius: 10px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer-link {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #00ff88;
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: #222;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            transform: scale(1.2) rotate(5deg);
+            background: #00ff88;
+            color: #000;
+            box-shadow: 0 0 10px #00ff88;
+        }
+
+        /* Header footer CSS End */
+
+        /* Body */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f7f6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(to right, #198754, #145c32);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        /* Container */
+        .container-box {
+            max-width: 900px;
+            margin: 30px auto;
+        }
+
+        /* Chapter Card */
+        .chapter {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .chapter h2 {
+            color: #198754;
+        }
+
+        /* Hidden content */
+        .chapter-content {
+            display: none;
+            margin-top: 10px;
+        }
+
+        /* Button */
+        .btn-back {
+            margin-top: 20px;
+        }
+
+        /* =====================================
+   📖 PREMIUM GARDENING GUIDE THEME
+   Colors:
+   #2E7D32 (Green)
+   #1B4332 (Dark Forest Green)
+   #F1F8E9 (Soft Cream)
+===================================== */
+
+        body {
+            background: linear-gradient(135deg, #F1F8E9, #ffffff);
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Page load animation */
+        main {
+            animation: pageEnter 0.8s ease-in-out;
+        }
+
+        @keyframes pageEnter {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+   HEADER SECTION (green banner)
+========================= */
+        .header {
+            background: linear-gradient(135deg, #2E7D32, #1B4332);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+            animation: headerGlow 3s infinite alternate;
+        }
+
+        /* animated glow background */
+        @keyframes headerGlow {
+            from {
+                filter: brightness(1);
+            }
+
+            to {
+                filter: brightness(1.15);
+            }
+        }
+
+        /* floating effect */
+        .header::before {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            top: -80px;
+            left: -80px;
+            filter: blur(40px);
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+            bottom: -100px;
+            right: -100px;
+            filter: blur(50px);
+        }
+
+        /* =========================
+   MAIN TITLE ANIMATION
+========================= */
+        .header h1 {
+            font-size: 2.4rem;
+            animation: titlePop 1s ease;
+        }
+
+        @keyframes titlePop {
+            0% {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* =========================
+   CONTAINER BOX
+========================= */
+        .container-box {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 10px;
+        }
+
+        /* =========================
+   CHAPTER CARDS (PREMIUM)
+========================= */
+        .chapter {
+            background: #ffffff;
+            padding: 22px;
+            border-radius: 16px;
+            margin-bottom: 22px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* hover effect */
+        .chapter:hover {
+            transform: translateY(-10px) scale(1.01);
+            background: linear-gradient(135deg, #ffffff, #F1F8E9);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* glowing border */
+        .chapter::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 2px;
+            background: linear-gradient(135deg, #2E7D32, transparent, #1B4332);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .chapter:hover::before {
+            opacity: 1;
+        }
+
+        /* =========================
+   CHAPTER TITLE
+========================= */
+        .chapter h2 {
+            color: #1B4332;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        /* underline animation */
+        .chapter h2::after {
+            content: "";
+            width: 0%;
+            height: 3px;
+            background: #2E7D32;
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            transition: 0.4s;
+        }
+
+        .chapter:hover h2::after {
+            width: 60%;
+        }
+
+        /* =========================
+   CHAPTER CONTENT
+========================= */
+        .chapter-content {
+            display: none;
+            margin-top: 12px;
+            animation: fadeContent 0.5s ease;
+            color: #333;
+        }
+
+        @keyframes fadeContent {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+   BACK BUTTON
+========================= */
+        .btn-back {
+            margin-top: 25px;
+            background: linear-gradient(135deg, #2E7D32, #1B4332);
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(46, 125, 50, 0.4);
+        }
+
+        /* =========================
+   BODY BACKGROUND DECOR
+========================= */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            background: rgba(46, 125, 50, 0.08);
+            top: -120px;
+            left: -120px;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: rgba(27, 67, 50, 0.08);
+            bottom: -150px;
+            right: -150px;
+            border-radius: 50%;
+            filter: blur(70px);
+            z-index: -1;
+        }
+
+        /* =========================
+   RESPONSIVE DESIGN
+========================= */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .chapter {
+                padding: 18px;
+            }
+
+            .container-box {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 15px;
+            }
+
+            .chapter:hover {
+                transform: translateY(-6px);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <!-- HEADER START -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow">
+            <div class="container">
+
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="LOGO-removebg-preview.png" alt="GardenWorld Logo" style="height: 60px; width: auto; display: block;">
+                  </a>
+                <!-- Toggle -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+
+                        <!-- Gardening Tips -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="gardeningtips.html" data-bs-toggle="dropdown">
+                                Gardening Tips
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="gardeningtips.html">Gardening Tips</a></li>
+                                <li><a class="dropdown-item" href="gardeningtips.html#soil-section">Soil &
+                                        Fertilizers</a></li>
+                                <li><a class="dropdown-item" href="gardeningtips.html#pesticides-section">Pesticides</a>
+                                </li>
+                                <li><a class="dropdown-item" href="gardeningtips.html#seeds-section">Seeds Info</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Tools -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="gardeningTools.html" data-bs-toggle="dropdown">
+                                Tools
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="gardeningTools.html">Gardening Tools</a></li>
+                                <li><a class="dropdown-item" href="gardeningTools.html">How to Use</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Pots -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="pots&Accessories.html" data-bs-toggle="dropdown">
+                                Pots & Accessories
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="pots&Accessories.html">Pots & Accessories</a></li>
+                                <li><a class="dropdown-item" href="pots&Accessories.html">Pots</a></li>
+                                <li><a class="dropdown-item" href="pots&Accessories.html">Accessories</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Accessories -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="accessories.html">Accessories</a>
+                        </li>
+
+                        <!-- Shop -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+
+                        <!-- Books -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="book.html">Books</a>
+                        </li>
+
+                        <!-- Contact -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="CONTACT-.html">Contact</a>
+                        </li>
+
+                        <!-- Services -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        <!-- HEADER END -->
+    </header>
+
+    <main>
+
+        <div class="header">
+            <h1> Complete Gardening Guide</h1>
+            <p>Learn Gardening from Beginner to Advanced</p>
+        </div>
+
+        <div class="container container-box">
+
+            <!-- Chapter Example -->
+            <div class="chapter">
+                <h2>Chapter 1: Introduction</h2>
+                <div class="chapter-content">
+                    <p>Gardening is a relaxing and productive hobby that connects you with nature. It helps reduce
+                        stress and improves mental well-being.</p>
+                    <p>Whether you have a balcony or a large garden, you can grow plants and enjoy a green environment
+                        at home.</p>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <h2>Chapter 2: Soil</h2>
+                <div class="chapter-content">
+                    <p>Healthy soil is very important for plant growth. It provides nutrients and support to roots.</p>
+                    <p>Adding compost improves soil fertility and helps plants grow faster and healthier.</p>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <h2>Chapter 3: Watering</h2>
+                <div class="chapter-content">
+                    <p>Water is essential for plants, but too much water can damage roots.</p>
+                    <p>Always check soil moisture before watering and prefer early morning or evening time.</p>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <h2>Chapter 4: Sunlight</h2>
+                <div class="chapter-content">
+                    <p>Sunlight helps plants perform photosynthesis and grow properly.</p>
+                    <p>Different plants require different light conditions, so place them accordingly.</p>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <h2>Chapter 5: Plant Selection</h2>
+                <div class="chapter-content">
+                    <p>Choose plants based on your climate and available space.</p>
+                    <p>Beginners should start with easy plants like mint, aloe vera, or coriander.</p>
+                </div>
+            </div>
+
+            <a href="book.html" class="btn btn-success btn-back">⬅ Back</a>
+
+        </div>
+
+
+    </main>
+
+    <footer>
+        <!-- FOOTER START -->
+        <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+            <div class="container">
+                <div class="row">
+
+                    <!-- About -->
+                    <div class="col-md-4 mb-4">
+                        <h4 class="fw-bold">🌿 Garden World</h4>
+                        <p>
+                            Your one-stop solution for gardening tips, tools, accessories,
+                            and everything you need to grow a beautiful garden.
+                        </p>
+
+                        <!-- Social Icons -->
+                        <div class="social-icons mt-3">
+                            <a href="https://www.facebook.com/" class="social-link"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/" class="social-link"><i class="bi bi-instagram"></i></a>
+                            <a href="https://www.youtube.com/" class="social-link"><i class="bi bi-youtube"></i></a>
+                            <a href="https://x.com/" class="social-link"><i class="bi bi-twitter-x"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-md-2 mb-4">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="footer-link">Home</a></li>
+                            <li><a href="gardeningtips.html" class="footer-link">Tips</a></li>
+                            <li><a href="gardeningTools.html" class="footer-link">Tools</a></li>
+                            <li><a href="shop.html" class="footer-link">Shop</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="col-md-3 mb-4">
+                        <h5>Categories</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="soil&fertilizer.html" class="footer-link">Soil & Fertilizers</a></li>
+                            <li><a href="pesticides.html" class="footer-link">Pesticides</a></li>
+                            <li><a href="seedsinfo.html" class="footer-link">Seeds</a></li>
+                            <li><a href="pots&Accessories.html" class="footer-link">Pots & Accessories</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="col-md-3 mb-4">
+                        <h5>Subscribe</h5>
+                        <form id="subscribeForm" novalidate>
+
+                            <input type="email" class="form-control mb-2" id="subscribeEmail" placeholder="Enter email"
+                                required>
+                            <div class="invalid-feedback">Please enter a valid email</div>
+
+                            <button type="submit" class="btn btn-success w-100">Subscribe</button>
+
+                        </form>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <!-- Bottom -->
+                <div class="text-center">
+                    <p class="mb-0">© 2026 Garden World | All Rights Reserved</p>
+                </div>
+
+            </div>
+        </footer>
+        <!-- FOOTER END -->
+    </footer>
+
+    <!-- SUBSCRIBE SUCCESS MODAL -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Subscribed 🎉</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center">
+                    <p>You have successfully subscribed! 🌿</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscribe Form -->
+    <script>
+        (() => {
+            const subscribeForm = document.getElementById('subscribeForm');
+
+            subscribeForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (!subscribeForm.checkValidity()) {
+                    subscribeForm.classList.add('was-validated');
+                } else {
+                    // reset form
+                    subscribeForm.reset();
+                    subscribeForm.classList.remove('was-validated');
+
+                    // show modal
+                    const modal = new bootstrap.Modal(document.getElementById('subscribeModal'));
+                    modal.show();
+                }
+            });
+        })();
+    </script>
+
+    <!-- active -->
+    <script>
+        const currentPage = window.location.pathname.split("/").pop();
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            const linkPage = link.getAttribute("href");
+
+            if (linkPage === currentPage) {
+                link.classList.add("active");
+            }
+        });
+    </script>
+
+
+    <script>
+        // jQuery Toggle
+        $(document).ready(function () {
+            $(".chapter").click(function () {
+                $(this).find(".chapter-content").slideToggle();
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

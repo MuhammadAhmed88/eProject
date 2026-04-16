@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>BOOK</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style>
+    /* Header footer CSS Strat */
+    .navbar-nav .nav-link {
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #d4ffdc !important;
+      transform: translateY(-2px);
+    }
+
+    /* Underline animation */
+    .navbar-nav .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: 0;
+      background: #ffffff;
+      transition: 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Dropdown animation */
+    .dropdown-menu {
+      border-radius: 10px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer-link {
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-link:hover {
+      color: #00ff88;
+      padding-left: 5px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: #222;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 18px;
+    }
+
+    .social-link:hover {
+      transform: scale(1.2) rotate(5deg);
+      background: #00ff88;
+      color: #000;
+      box-shadow: 0 0 10px #00ff88;
+    }
+
+    /* Header footer CSS End */
+
+    .book-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .book-img {
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .book-card .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .btn-custom {
+      background: #198754;
+      color: #fff;
+      border: none;
+    }
+
+    .btn-custom:hover {
+      background: #146c43;
+    }
+
+    /* =====================================
+   📚 PREMIUM BOOK PAGE THEME
+   Colors:
+   #2E7D32 (Green)
+   #1B4332 (Dark Green)
+   #F1F8E9 (Light Background)
+===================================== */
+
+    body {
+      background: radial-gradient(circle at top, #F1F8E9, #ffffff);
+      overflow-x: hidden;
+    }
+
+    /* Page entrance animation */
+    main,
+    .container {
+      animation: pageLoad 0.8s ease-in-out;
+    }
+
+    @keyframes pageLoad {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================
+   MAIN HEADING
+========================= */
+    h1.fw-bold {
+      color: #1B4332;
+      position: relative;
+      display: inline-block;
+      animation: titlePop 1s ease;
+    }
+
+    @keyframes titlePop {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    h1.fw-bold::after {
+      content: "";
+      width: 70%;
+      height: 4px;
+      background: linear-gradient(90deg, #2E7D32, #1B4332);
+      position: absolute;
+      left: 15%;
+      bottom: -10px;
+      border-radius: 10px;
+    }
+
+    /* =========================
+   SUB TEXT
+========================= */
+    .text-muted {
+      animation: fadeInText 1.2s ease;
+    }
+
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* =========================
+   BOOK CARDS
+========================= */
+    .book-card {
+      border: none;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    /* Hover effect */
+    .book-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      background: linear-gradient(135deg, #ffffff, #F1F8E9);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Glow border effect */
+    .book-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      padding: 2px;
+      background: linear-gradient(135deg, #2E7D32, transparent, #1B4332);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    .book-card:hover::before {
+      opacity: 1;
+    }
+
+    /* =========================
+   BOOK IMAGE
+========================= */
+    .book-img {
+      height: 260px;
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.6s ease;
+    }
+
+    /* image zoom on hover */
+    .book-card:hover .book-img {
+      transform: scale(1.1);
+      filter: brightness(1.1) saturate(1.2);
+    }
+
+    /* =========================
+   BUTTON STYLE
+========================= */
+    .btn-custom {
+      background: linear-gradient(135deg, #2E7D32, #1B4332);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* shimmer effect */
+    .btn-custom::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: skewX(-20deg);
+      transition: 0.5s;
+    }
+
+    .btn-custom:hover::before {
+      left: 100%;
+    }
+
+    .btn-custom:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(46, 125, 50, 0.4);
+    }
+
+    /* =========================
+   CARD TEXT ANIMATION
+========================= */
+    .card-body h5 {
+      color: #1B4332;
+      transition: 0.3s;
+    }
+
+    .book-card:hover h5 {
+      color: #2E7D32;
+    }
+
+    /* =========================
+   DETAILS BOX
+========================= */
+    #bookDetails {
+      border-radius: 18px;
+      background: #ffffff;
+      transition: all 0.4s ease;
+      animation: fadeUp 1s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    #bookDetails:hover {
+      transform: scale(1.01);
+      background: #F1F8E9;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================
+   GRID ANIMATION
+========================= */
+    .row>div {
+      opacity: 0;
+      animation: cardFade 0.8s ease forwards;
+    }
+
+    .row>div:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .row>div:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .row>div:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes cardFade {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================
+   BACKGROUND DECORATION
+========================= */
+    body::before {
+      content: "";
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      background: rgba(46, 125, 50, 0.08);
+      top: -100px;
+      left: -100px;
+      border-radius: 50%;
+      z-index: -1;
+      filter: blur(40px);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      background: rgba(27, 67, 50, 0.08);
+      bottom: -150px;
+      right: -150px;
+      border-radius: 50%;
+      z-index: -1;
+      filter: blur(50px);
+    }
+
+    /* =========================
+   RESPONSIVE DESIGN
+========================= */
+    @media (max-width: 768px) {
+      h1.fw-bold {
+        font-size: 1.6rem;
+      }
+
+      .book-img {
+        height: 200px;
+      }
+
+      .book-card:hover {
+        transform: translateY(-6px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .book-img {
+        height: 180px;
+      }
+
+      #bookDetails {
+        padding: 15px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <!-- HEADER START -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow">
+      <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="LOGO-removebg-preview.png" alt="GardenWorld Logo" style="height: 60px; width: auto; display: block;">
+        </a>
+
+        <!-- Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+
+            <li class="nav-item">
+              <a class="nav-link " href="index.html">Home</a>
+            </li>
+
+            <!-- Gardening Tips -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="gardeningtips.html" data-bs-toggle="dropdown">
+                Gardening Tips
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="gardeningtips.html">Gardening Tips</a></li>
+                <li><a class="dropdown-item" href="gardeningtips.html#soil-section">Soil &
+                    Fertilizers</a></li>
+                <li><a class="dropdown-item" href="gardeningtips.html#pesticides-section">Pesticides</a>
+                </li>
+                <li><a class="dropdown-item" href="gardeningtips.html#seeds-section">Seeds Info</a></li>
+              </ul>
+            </li>
+
+            <!-- Tools -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="gardeningTools.html" data-bs-toggle="dropdown">
+                Tools
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="gardeningTools.html">Gardening Tools</a></li>
+                <li><a class="dropdown-item" href="gardeningTools.html">How to Use</a></li>
+              </ul>
+            </li>
+
+            <!-- Pots -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="pots&Accessories.html" data-bs-toggle="dropdown">
+                Pots & Accessories
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="pots&Accessories.html">Pots & Accessories</a></li>
+                <li><a class="dropdown-item" href="pots&Accessories.html">Pots</a></li>
+                <li><a class="dropdown-item" href="pots&Accessories.html">Accessories</a></li>
+              </ul>
+            </li>
+
+            <!-- Accessories -->
+            <li class="nav-item">
+              <a class="nav-link" href="accessories.html">Accessories</a>
+            </li>
+
+            <!-- Shop -->
+            <li class="nav-item">
+              <a class="nav-link" href="shop.html">Shop</a>
+            </li>
+
+            <!-- Books -->
+            <li class="nav-item">
+              <a class="nav-link" href="book.html">Books</a>
+            </li>
+
+            <!-- Contact -->
+            <li class="nav-item">
+              <a class="nav-link" href="CONTACT-.html">Contact</a>
+            </li>
+
+            <!-- Services -->
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <!-- HEADER END -->
+  </header>
+
+  <main>
+
+    <div class="container text-center my-5">
+      <h1 class="fw-bold"> Gardening & Learning Books</h1>
+      <p class="text-muted">Explore books to improve your gardening knowledge</p>
+    </div>
+
+    <!-- BOOKS SECTION -->
+    <div class="container">
+      <div class="row g-4">
+
+        <!--  BOOK 1 -->
+        <div class="col-md-4">
+          <div class="card book-card h-100">
+            <img src="Book images/book1.webp" class="book-img">
+            <div class="card-body text-center">
+              <h5 class="fw-bold">Complete Gardening Guide</h5>
+              <p class="text-muted">
+                Learn basic to advanced gardening techniques, soil preparation, watering, and plant care.
+              </p>
+              <a href="GardeningGuideBook.html" class="btn btn-custom">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!--  BOOK 2 -->
+        <div class="col-md-4">
+          <div class="card book-card h-100">
+            <img src="Book images/book2.jpg" class="book-img">
+            <div class="card-body text-center">
+              <h5 class="fw-bold">Flower Decoration Ideas</h5>
+              <p class="text-muted">
+                Creative ideas to decorate your home garden with flowers and accessories.
+              </p>
+              <a href="FlowerDecorationIdea.html" class="btn btn-custom">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!--  BOOK 3 -->
+        <div class="col-md-4">
+          <div class="card book-card h-100">
+            <img src="Book images/book3.jpg" class="book-img">
+            <div class="card-body text-center">
+              <h5 class="fw-bold">Organic Farming Basics</h5>
+              <p class="text-muted">
+                Understand pesticides, fertilizers, and organic methods for healthy plants.
+              </p>
+              <a href="organicFarmingBasic.html" class="btn btn-custom">Read More</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DETAILS SECTION -->
+    <div class="container my-5">
+      <div id="bookDetails" class="p-4 bg-white shadow rounded text-center">
+        <h4>Select a book to see details </h4>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <!-- FOOTER START -->
+    <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+      <div class="container">
+        <div class="row">
+
+          <!-- About -->
+          <div class="col-md-4 mb-4">
+            <h4 class="fw-bold">🌿 Garden World</h4>
+            <p>
+              Your one-stop solution for gardening tips, tools, accessories,
+              and everything you need to grow a beautiful garden.
+            </p>
+
+            <!-- Social Icons -->
+            <div class="social-icons mt-3">
+              <a href="https://www.facebook.com/" class="social-link"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/" class="social-link"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.youtube.com/" class="social-link"><i class="bi bi-youtube"></i></a>
+              <a href="https://x.com/" class="social-link"><i class="bi bi-twitter-x"></i></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-md-2 mb-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="gardeningtips.html" class="footer-link">Tips</a></li>
+              <li><a href="gardeningTools.html" class="footer-link">Tools</a></li>
+              <li><a href="shop.html" class="footer-link">Shop</a></li>
+            </ul>
+          </div>
+
+          <!-- Categories -->
+          <div class="col-md-3 mb-4">
+            <h5>Categories</h5>
+            <ul class="list-unstyled">
+              <li><a href="soil&fertilizer.html" class="footer-link">Soil & Fertilizers</a></li>
+              <li><a href="pesticides.html" class="footer-link">Pesticides</a></li>
+              <li><a href="seedsinfo.html" class="footer-link">Seeds</a></li>
+              <li><a href="pots&Accessories.html" class="footer-link">Pots & Accessories</a></li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="col-md-3 mb-4">
+            <h5>Subscribe</h5>
+            <form id="subscribeForm" novalidate>
+
+              <input type="email" class="form-control mb-2" id="subscribeEmail" placeholder="Enter email" required>
+              <div class="invalid-feedback">Please enter a valid email</div>
+
+              <button type="submit" class="btn btn-success w-100">Subscribe</button>
+
+            </form>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <!-- Bottom -->
+        <div class="text-center">
+          <p class="mb-0">© 2026 Garden World | All Rights Reserved</p>
+        </div>
+
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+  </footer>
+
+  <!-- SUBSCRIBE SUCCESS MODAL -->
+  <div class="modal fade" id="subscribeModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">Subscribed 🎉</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body text-center">
+          <p>You have successfully subscribed! 🌿</p>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-success" data-bs-dismiss="modal">OK</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Subscribe Form -->
+  <script>
+    (() => {
+      const subscribeForm = document.getElementById('subscribeForm');
+
+      subscribeForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (!subscribeForm.checkValidity()) {
+          subscribeForm.classList.add('was-validated');
+        } else {
+          // reset form
+          subscribeForm.reset();
+          subscribeForm.classList.remove('was-validated');
+
+          // show modal
+          const modal = new bootstrap.Modal(document.getElementById('subscribeModal'));
+          modal.show();
+        }
+      });
+    })();
+  </script>
+
+  <!-- active -->
+  <script>
+    const currentPage = window.location.pathname.split("/").pop();
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const linkPage = link.getAttribute("href");
+
+      if (linkPage === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+  <!-- JS -->
+  <script>
+
+    function showDetails(book) {
+      let content = "";
+
+      if (book === "book1") {
+        content = `
+      <h3>🌱 Complete Gardening Guide</h3>
+      <p>This book covers:</p>
+      <ul>
+        <li>Soil & Fertilizers</li>
+        <li>Seeds selection</li>
+        <li>Watering techniques</li>
+        <li>Tools usage</li>
+      </ul>
+    `;
+      }
+
+      if (book === "book2") {
+        content = `
+      <h3>🌸 Flower Decoration Ideas</h3>
+      <p>This book includes:</p>
+      <ul>
+        <li>Miniature garden toys</li>
+        <li>Decorative pebbles</li>
+        <li>Pot design ideas</li>
+        <li>Balcony decoration</li>
+      </ul>
+    `;
+      }
+
+      if (book === "book3") {
+        content = `
+      <h3>🌿 Organic Farming Basics</h3>
+      <p>This book teaches:</p>
+      <ul>
+        <li>Organic pesticides</li>
+        <li>Natural fertilizers</li>
+        <li>Healthy plant growth</li>
+        <li>Eco-friendly gardening</li>
+      </ul>
+    `;
+      }
+
+      document.getElementById("bookDetails").innerHTML = content;
+    }
+
+    function showDetails() {
+      document.getElementById("bookContent").innerHTML = "";
+    }
+
+  </script>
+
+  <!-- jQuery animation -->
+  <script>
+    $(document).ready(function () {
+      $(".book-card").hide().fadeIn(1500);
+    });
+  </script>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
